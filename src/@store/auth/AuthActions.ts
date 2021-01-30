@@ -1,10 +1,6 @@
 import { toast } from "react-toastify";
 
-import {
-  getUserByIdUrl,
-  loginUserUrl,
-  registerUserUrl,
-} from "../../@api/Endpoint";
+import { loginUserUrl, registerUserUrl } from "../../@api/Endpoint";
 import { axiosInstance as axios } from "../../@api/axios";
 import { AuthActionTypes } from "../redux/actionTypes";
 import { User } from "../../@models/User";
@@ -79,7 +75,6 @@ export const submitRegister = (user: User, history) => {
       .post(url, request)
       .then((res) => {
         let { data } = res;
-        console.log(data);
         if (
           data.accessToken &&
           data.accessToken !== "undefined" &&
@@ -120,43 +115,4 @@ const registerUserSuccess = (dispatch, data, history) => {
   });
   localStorage.setItem("firstTime", "true");
   history.push("/home");
-};
-
-export const getUser = (id) => {
-  return (dispatch) => {
-    dispatch({
-      type: AuthActionTypes.GET_USER_START,
-    });
-
-    const url = getUserByIdUrl(id);
-    axios
-      .get(url)
-      .then((res) => {
-        let { data } = res;
-        if (data._id && data._id !== "undefined") {
-          getUserSuccess(dispatch, data);
-        } else {
-          getUserFail(dispatch, "There was an error connection");
-        }
-      })
-      .catch((error) => {
-        console.log(error.message);
-        getUserFail(dispatch, "There was an error connection2");
-      });
-  };
-};
-const getUserFail = (dispatch, errorMessage) => {
-  console.log(errorMessage);
-  dispatch({
-    type: AuthActionTypes.GET_USER_FAIL,
-    payload: {
-      errorMessage,
-    },
-  });
-};
-const getUserSuccess = (dispatch, data) => {
-  dispatch({
-    type: AuthActionTypes.GET_USER_SUCCESS,
-    payload: data,
-  });
 };

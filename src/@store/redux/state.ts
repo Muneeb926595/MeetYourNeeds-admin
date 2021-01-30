@@ -7,8 +7,4 @@ declare global {
     user: User;
     loading?: boolean;
   }
-  interface ProductState {
-    products: Product[];
-    loading?: boolean;
-  }
 }

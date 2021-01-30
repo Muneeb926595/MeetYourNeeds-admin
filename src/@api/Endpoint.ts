@@ -1,17 +1,11 @@
 export const BASE = "api end point";
 
 export const loginUserUrl = () => {
-  return encodeURI("auth/login");
+  return encodeURI("dashboard/auth/login");
 };
 export const registerUserUrl = () => {
-  return encodeURI("auth/user");
+  return encodeURI("dashboard/auth/user");
 };
-export const getUserByIdUrl = (id) => {
-  return encodeURI("auth/user/" + id);
-};
-export const getAddProductUrl = () => {
-  return encodeURI("product");
-};
-export const getProductsUrl = () => {
-  return encodeURI("product");
+export const getUsersUrl = () => {
+  return encodeURI("dashboard/auth/user");
 };

@@ -9,7 +9,6 @@ import Signup from "./@modules/SignUp/Signup";
 import Login from "./@modules/Login/Login";
 import Layout from "./@layouts/Layout";
 import store from "./@store";
-import Home from "./@modules/Home/Home";
 import "./App.css";
 
 function App() {
@@ -24,7 +23,7 @@ function App() {
             <Route exact path="/login" component={Login} />
             <Route exact path="/signup" component={Signup} />
             <Layout>
-              <Route exact path="/home" component={Home} />
+              {/* <Route exact path="/home" component={Home} /> */}
             </Layout>
           </Switch>
         </Router>
