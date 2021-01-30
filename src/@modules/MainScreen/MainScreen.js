@@ -10,7 +10,7 @@ const MainScreen = (props) => {
       localStorage.getItem("userId") &&
       localStorage.getItem("access_token")
     ) {
-      history.push("/home");
+      history.push("/dashboard");
     }
   }, []);
   return (

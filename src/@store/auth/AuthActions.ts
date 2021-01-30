@@ -56,7 +56,7 @@ const loginUserSuccess = (dispatch, data, history) => {
     type: AuthActionTypes.LOGIN_USER_SUCCESS,
     payload: data,
   });
-  history.push("/home");
+  history.push("/dashboard");
 };
 
 export const submitRegister = (user: User, history) => {
@@ -114,5 +114,5 @@ const registerUserSuccess = (dispatch, data, history) => {
     payload: data,
   });
   localStorage.setItem("firstTime", "true");
-  history.push("/home");
+  history.push("/dashboard");
 };
