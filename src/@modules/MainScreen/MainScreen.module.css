@@ -1,0 +1,94 @@
+.MainScreen {
+  background-color: #ff8800;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+}
+.MainScreenContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.MainScreen__rulesContainer {
+  max-width: 500px;
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  position: absolute;
+  bottom: 0;
+}
+.MainScreen__rules {
+  display: none;
+}
+.MainScreen__rules:hover {
+  color: #ff8800;
+}
+.MainScreen__content {
+  display: flex;
+  width: 70%;
+  max-width: 450px;
+  justify-content: center;
+  flex-direction: column;
+}
+.MainScreen__appNameContainer {
+  font-size: 44px;
+  font-weight: 700;
+  color: #ffffff;
+}
+.MainScreen__appName {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 4rem;
+}
+.MainScreen__buttonsContainer {
+  display: flex;
+  flex-direction: column;
+}
+.MainScreen__customeButton {
+  width: 100%;
+  padding: 16px;
+  font-size: 14px;
+  color: #000000;
+  border-radius: 10px;
+  background-color: #ffffff;
+  outline: none;
+  border: none;
+  margin-bottom: 0.6rem;
+}
+.MainScreen__upperPartSpliter {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+  margin-bottom: 18px;
+}
+.MainScreen__horizentalLine {
+  border-bottom: 1px solid #ffffff;
+  flex: 0.5;
+}
+
+@media (min-width: 600px) {
+  .MainScreen {
+    background-color: #ffffff;
+  }
+  .MainScreen__content {
+    height: 60vh;
+    padding: 2rem;
+    background-color: #ff8800;
+    align-items: center;
+    box-shadow: 0 0 14px #696161;
+  }
+  .MainScreen__buttonsContainer {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+  }
+  .MainScreen__rules {
+    display: inline;
+    margin-bottom: 1.4rem;
+    text-decoration: none;
+    color: #000000;
+  }
+}
