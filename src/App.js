@@ -10,6 +10,7 @@ import Login from "./@modules/Login/Login";
 import Layout from "./@layouts/Layout";
 import store from "./@store";
 import "./App.css";
+import DashBoard from "./@modules/DashBoard/DashBoard";
 
 function App() {
   return (
@@ -23,7 +24,7 @@ function App() {
             <Route exact path="/login" component={Login} />
             <Route exact path="/signup" component={Signup} />
             <Layout>
-              {/* <Route exact path="/home" component={Home} /> */}
+              <Route exact path="/dashboard" component={DashBoard} />
             </Layout>
           </Switch>
         </Router>
