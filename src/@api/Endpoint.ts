@@ -9,3 +9,12 @@ export const registerUserUrl = () => {
 export const getUsersUrl = () => {
   return encodeURI("dashboard/auth/user");
 };
+export const getDashboardDataUrl = () => {
+  return encodeURI("dashboard/data");
+};
+export const getUsersDataUrl = () => {
+  return encodeURI("dashboard/users-data");
+};
+export const getProductDataUrl = () => {
+  return encodeURI("dashboard/products-data");
+};

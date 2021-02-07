@@ -7,4 +7,17 @@ declare global {
     user: User;
     loading?: boolean;
   }
+  interface DashboardState {
+    allUsersCount: String;
+    allProductsCount: String;
+    loading?: boolean;
+  }
+  interface UserState {
+    users: any[];
+    loading?: boolean;
+  }
+  interface ProductState {
+    products: any[];
+    loading?: boolean;
+  }
 }

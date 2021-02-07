@@ -11,6 +11,8 @@ import Layout from "./@layouts/Layout";
 import store from "./@store";
 import "./App.css";
 import DashBoard from "./@modules/DashBoard/DashBoard";
+import Users from "./@modules/Users/Users";
+import Products from "./@modules/Products/Products";
 
 function App() {
   return (
@@ -25,6 +27,8 @@ function App() {
             <Route exact path="/signup" component={Signup} />
             <Layout>
               <Route exact path="/dashboard" component={DashBoard} />
+              <Route exact path="/users" component={Users} />
+              <Route exact path="/products" component={Products} />
             </Layout>
           </Switch>
         </Router>
