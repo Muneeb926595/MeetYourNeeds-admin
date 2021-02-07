@@ -1,0 +1,38 @@
+.dashboardCardContainer {
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  width: 25vw;
+  margin: 1rem;
+  box-shadow: 0px 0px 20px #dbdbdb;
+  border-radius: 6px;
+}
+.cardHeader {
+  background-color: #007aff;
+  padding-left: 1rem;
+  color: #ffffff;
+}
+.cardContent {
+  display: flex;
+  padding: 1rem;
+  flex-direction: column;
+}
+.content {
+  font-size: 40px;
+  margin: 0;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  color: #007aff;
+}
+.viewButton {
+  background-color: #007aff;
+  color: #ffffff;
+  padding: 10px 40px;
+  border-radius: 6px;
+  border: none;
+  outline: none;
+  width: fit-content;
+  align-self: flex-end;
+  cursor: pointer;
+  text-decoration: none;
+}
