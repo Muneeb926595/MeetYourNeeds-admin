@@ -18,3 +18,9 @@ export const getUsersDataUrl = () => {
 export const getProductDataUrl = () => {
   return encodeURI("dashboard/products-data");
 };
+export const deleteProductUrl = (id) => {
+  return encodeURI("product/" + id);
+};
+export const getProductByIdUrl = (id) => {
+  return encodeURI("product/" + id);
+};

@@ -13,6 +13,7 @@ import "./App.css";
 import DashBoard from "./@modules/DashBoard/DashBoard";
 import Users from "./@modules/Users/Users";
 import Products from "./@modules/Products/Products";
+import ProductDetailspage from "./@modules/Products/ProductDetailspage/ProductDetailspage";
 
 function App() {
   return (
@@ -29,6 +30,11 @@ function App() {
               <Route exact path="/dashboard" component={DashBoard} />
               <Route exact path="/users" component={Users} />
               <Route exact path="/products" component={Products} />
+              <Route
+                exact
+                path="/product-details"
+                component={ProductDetailspage}
+              />
             </Layout>
           </Switch>
         </Router>

@@ -35,6 +35,15 @@ const useStyles = makeStyles({
   tabelHeader: {
     backgroundColor: "red",
   },
+  viewButton: {
+    color: "#ffffff",
+    borderRadius: "6px",
+    padding: "4px 8px",
+    backgroundColor: "#007aff",
+    cursor: "pointer",
+    border: "none",
+    outline: "none",
+  },
 });
 
 const UsersTable = ({ data }) => {

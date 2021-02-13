@@ -28,6 +28,37 @@ const ProductReducer = (
         loading: false,
       };
     }
+    case ProductsActionTypes.GET_PRODUCT_BY_ID_START: {
+      return { ...state, loading: true };
+    }
+    case ProductsActionTypes.GET_PRODUCT_BY_ID_SUCCESS: {
+      return {
+        ...state,
+        products: action.payload,
+        loading: false,
+      };
+    }
+    case ProductsActionTypes.GET_PRODUCT_BY_ID_FAIL: {
+      return {
+        ...state,
+        loading: false,
+      };
+    }
+    case ProductsActionTypes.DELETE_PRODUCT_START: {
+      return { ...state, loading: true };
+    }
+    case ProductsActionTypes.DELETE_PRODUCT_SUCCESS: {
+      return {
+        ...state,
+        loading: false,
+      };
+    }
+    case ProductsActionTypes.DELETE_PRODUCT_FAIL: {
+      return {
+        ...state,
+        loading: false,
+      };
+    }
     default: {
       return state;
     }
