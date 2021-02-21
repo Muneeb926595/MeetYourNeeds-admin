@@ -11,7 +11,10 @@ import TableRow from '@material-ui/core/TableRow'
 import Paper from '@material-ui/core/Paper'
 
 import { getLastPostDuration } from '../../../@helpers/timeDateUtils'
-import { deleteProduct } from '../../../@store/product/ProductActions'
+import {
+  removeOrderLocally,
+  removeOrder,
+} from '../../../@store/order/OrderActions'
 
 const StyledTableCell = withStyles((theme) => ({
   head: {
@@ -65,7 +68,7 @@ const useStyles = makeStyles({
   },
 })
 
-const ProductsTable = ({ data }) => {
+const OrdersTable = ({ data }) => {
   const dispatch = useDispatch()
   const classes = useStyles()
 
@@ -73,14 +76,11 @@ const ProductsTable = ({ data }) => {
   data?.length > 0 &&
     data.map((singleRow) => {
       const newObject = {
-        productId: singleRow._id,
-        title: singleRow.title,
-        category: singleRow.category,
-        description: singleRow.description,
-        image: singleRow.image,
-        price: singleRow.price,
-        createdBy: singleRow.userId.userName,
-        createdAt: singleRow.createdAt,
+        orderId: singleRow?._id,
+        createdBy: singleRow?.userId?.userName,
+        paymentMethod: singleRow?.paymentMethod,
+        products: singleRow?.products,
+        createdAt: singleRow?.createdAt,
       }
       filterData.push(newObject)
     })
@@ -89,13 +89,10 @@ const ProductsTable = ({ data }) => {
       <Table className={classes.table} aria-label='customized table'>
         <TableHead>
           <TableRow>
-            <StyledTableCell>Title</StyledTableCell>
-            <StyledTableCell>Image</StyledTableCell>
-            <StyledTableCell align='right'>Category</StyledTableCell>
-            <StyledTableCell align='right'>Description</StyledTableCell>
-            <StyledTableCell align='right'>Price</StyledTableCell>
-            <StyledTableCell align='right'>createdBy</StyledTableCell>
-            <StyledTableCell align='right'>CreatedAt</StyledTableCell>
+            <StyledTableCell>CreatedBy</StyledTableCell>
+            <StyledTableCell align='center'>PaymentMethod</StyledTableCell>
+            <StyledTableCell align='center'>No of Products</StyledTableCell>
+            <StyledTableCell align='center'>CreatedAt</StyledTableCell>
             <StyledTableCell align='right'>View</StyledTableCell>
             <StyledTableCell align='left'>Delete</StyledTableCell>
           </TableRow>
@@ -104,27 +101,27 @@ const ProductsTable = ({ data }) => {
           {filterData.map((row) => (
             <StyledTableRow key={row.name}>
               <StyledTableCell component='th' scope='row'>
-                {row.title}
+                {row.createdBy}
               </StyledTableCell>
-              <StyledTableCell align='left'>
-                <img
-                  className={classes.productImage}
-                  alt='productImage'
-                  src={`https://meet-your-needs-api.herokuapp.com/api/${row.image}`}
-                />
+              <StyledTableCell align='center'>
+                {row.paymentMethod}
               </StyledTableCell>
-              <StyledTableCell align='right'>{row.category}</StyledTableCell>
-              <StyledTableCell align='right'>{row.description}</StyledTableCell>
-              <StyledTableCell align='right'>{row.price}</StyledTableCell>
-              <StyledTableCell align='right'>{row.createdBy}</StyledTableCell>
-              <StyledTableCell align='right'>
+              <StyledTableCell align='center'>
+                {row.products.length}
+              </StyledTableCell>
+              <StyledTableCell align='center'>
                 {getLastPostDuration(row.createdAt)}
               </StyledTableCell>
               <StyledTableCell align='right'>
                 <Link
                   to={{
-                    pathname: '/product-details',
-                    state: { productId: row.productId },
+                    pathname: '/order-details',
+                    state: {
+                      products: row.products,
+                      paymentMethod: row.paymentMethod,
+                      createdAt: row.createdAt,
+                      createdBy: row.createdBy,
+                    },
                   }}
                   className={classes.viewButton}
                 >
@@ -134,7 +131,10 @@ const ProductsTable = ({ data }) => {
               <StyledTableCell align='left'>
                 <button
                   className={classes.deleteButton}
-                  onClick={() => dispatch(deleteProduct(row.productId))}
+                  onClick={() => {
+                    dispatch(removeOrder(row.orderId))
+                    dispatch(removeOrderLocally(row.orderId))
+                  }}
                 >
                   Delete
                 </button>
@@ -146,4 +146,4 @@ const ProductsTable = ({ data }) => {
     </TableContainer>
   )
 }
-export default ProductsTable
+export default OrdersTable

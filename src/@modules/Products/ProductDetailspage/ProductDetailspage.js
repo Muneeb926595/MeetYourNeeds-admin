@@ -42,7 +42,7 @@ const ProductDetailspage = (props) => {
           <div className={classes.leftSide}>
             <div className={classes.productImageContainer}>
               <img
-                src={`http://localhost:3000/${productDetails.image}`}
+                src={`https://meet-your-needs-api.herokuapp.com/api/${productDetails.image}`}
                 className={classes.productImage}
               />
             </div>

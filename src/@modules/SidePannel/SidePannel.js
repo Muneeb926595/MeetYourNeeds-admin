@@ -1,21 +1,22 @@
-import React from "react";
-import { NavLink } from "react-router-dom";
+import React from 'react'
+import { NavLink } from 'react-router-dom'
 
-import classes from "./Sidepannel.module.css";
-import { ReactComponent as DashboardIcon } from "../../assets/Images/sidebar/dashboardIcon.svg";
-import { ReactComponent as ProductsIcon } from "../../assets/Images/sidebar/productsIcon.svg";
-import { ReactComponent as UsersIcon } from "../../assets/Images/sidebar/usersIcon.svg";
+import classes from './Sidepannel.module.css'
+import { ReactComponent as DashboardIcon } from '../../assets/Images/sidebar/dashboardIcon.svg'
+import { ReactComponent as ProductsIcon } from '../../assets/Images/sidebar/productsIcon.svg'
+import { ReactComponent as UsersIcon } from '../../assets/Images/sidebar/usersIcon.svg'
+import { ReactComponent as OrdersIcon } from '../../assets/Images/sidebar/ordersIcon.svg'
 
 function SidePannel() {
   return (
     <div className={classes.sidePannelContainer}>
-      <NavLink className={classes.logoContainer} to="/dashboard">
-        <p style={{ textAlign: "center", width: "100%" }}>M</p>
+      <NavLink className={classes.logoContainer} to='/dashboard'>
+        <p style={{ textAlign: 'center', width: '100%' }}>M</p>
       </NavLink>
       <NavLink
         activeClassName={classes.activeSideBarItemContainer}
         className={classes.sideBarItemContainer}
-        to="/dashboard"
+        to='/dashboard'
       >
         <DashboardIcon className={classes.sideBarItemIcon} />
         <p className={classes.sideBarItemTitle}>Dashboard</p>
@@ -23,7 +24,7 @@ function SidePannel() {
       <NavLink
         activeClassName={classes.activeSideBarItemContainer}
         className={classes.sideBarItemContainer}
-        to="/users"
+        to='/users'
       >
         <UsersIcon className={classes.sideBarItemIcon} />
         <p className={classes.sideBarItemTitle}>Users</p>
@@ -31,13 +32,21 @@ function SidePannel() {
       <NavLink
         activeClassName={classes.activeSideBarItemContainer}
         className={classes.sideBarItemContainer}
-        to="/products"
+        to='/products'
       >
         <ProductsIcon className={classes.sideBarItemIcon} />
         <p className={classes.sideBarItemTitle}>Products</p>
       </NavLink>
+      <NavLink
+        activeClassName={classes.activeSideBarItemContainer}
+        className={classes.sideBarItemContainer}
+        to='/orders'
+      >
+        <OrdersIcon className={classes.sideBarItemIcon} />
+        <p className={classes.sideBarItemTitle}>Orders</p>
+      </NavLink>
     </div>
-  );
+  )
 }
 
-export default SidePannel;
+export default SidePannel

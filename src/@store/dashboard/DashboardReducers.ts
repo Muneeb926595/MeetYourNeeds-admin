@@ -1,12 +1,13 @@
-import { DashboardActionTypes } from "./../redux/actionTypes";
+import { DashboardActionTypes } from './../redux/actionTypes'
 const INITIAL_STATE: DashboardState = {
-  allProductsCount: "",
-  allUsersCount: "",
+  allProductsCount: '',
+  allUsersCount: '',
+  allOrdersCount: '',
   loading: false,
-};
+}
 interface Action {
-  payload: any;
-  type: string;
+  payload: any
+  type: string
 }
 const AuthReducer = (
   state: DashboardState = INITIAL_STATE,
@@ -14,25 +15,26 @@ const AuthReducer = (
 ): DashboardState => {
   switch (action.type) {
     case DashboardActionTypes.GET_DASHBOARD_DATA_START: {
-      return { ...state, loading: true };
+      return { ...state, loading: true }
     }
     case DashboardActionTypes.GET_DASHBOARD_DATA_SUCCESS: {
       return {
         ...state,
         allProductsCount: action.payload.allProductsCount,
         allUsersCount: action.payload.allUsersCount,
+        allOrdersCount: action.payload.allOrdersCount,
         loading: false,
-      };
+      }
     }
     case DashboardActionTypes.GET_DASHBOARD_DATA_FAIL: {
       return {
         ...state,
         loading: false,
-      };
+      }
     }
     default: {
-      return state;
+      return state
     }
   }
-};
-export default AuthReducer;
+}
+export default AuthReducer

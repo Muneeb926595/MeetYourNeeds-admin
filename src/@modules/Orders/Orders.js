@@ -1,23 +1,23 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
-import classes from './Products.module.css'
+import classes from './Orders.module.css'
 import Loader from '../../@components/Loader/Loader'
-import { getProductData } from '../../@store/product/ProductActions'
-import ProductsTable from './Tabel/Tabel'
+import { getOrdersData } from '../../@store/order/OrderActions'
+import OrdersTable from './Tabel/Tabel'
 
-const Products = () => {
+const Orders = () => {
   const dispatch = useDispatch()
 
   const dataLoading = useSelector(
-    ({ MeedYourNeeds }) => MeedYourNeeds.products.loading
+    ({ MeedYourNeeds }) => MeedYourNeeds.orders.loading
   )
-  const allProductsData = useSelector(
-    ({ MeedYourNeeds }) => MeedYourNeeds.products.products
+  const allOrderssData = useSelector(
+    ({ MeedYourNeeds }) => MeedYourNeeds.orders.orders
   )
 
   useEffect(() => {
-    dispatch(getProductData())
+    dispatch(getOrdersData())
   }, [dispatch])
 
   return (
@@ -37,13 +37,13 @@ const Products = () => {
           <Loader />
         </div>
       ) : (
-        <div className={classes.productsContainer}>
-          <p className={classes.sectionTitle}>Products</p>
-          <ProductsTable data={allProductsData} />
+        <div className={classes.ordersContainer}>
+          <p className={classes.sectionTitle}>Orders</p>
+          <OrdersTable data={allOrderssData} />
         </div>
       )}
     </>
   )
 }
 
-export default Products
+export default Orders
