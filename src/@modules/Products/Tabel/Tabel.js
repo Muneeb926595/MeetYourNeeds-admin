@@ -13,6 +13,9 @@ import Paper from '@material-ui/core/Paper'
 import { getLastPostDuration } from '../../../@helpers/timeDateUtils'
 import { deleteProduct } from '../../../@store/product/ProductActions'
 
+// const baseUrl='https://meet-your-needs-api.herokuapp.com/api/'
+const baseUrl='http://localhost:3000/api/'
+
 const StyledTableCell = withStyles((theme) => ({
   head: {
     backgroundColor: theme.palette.common.black,
@@ -110,7 +113,7 @@ const ProductsTable = ({ data }) => {
                 <img
                   className={classes.productImage}
                   alt='productImage'
-                  src={`https://meet-your-needs-api.herokuapp.com/api/${row.image}`}
+                  src={baseUrl+row.imag}
                 />
               </StyledTableCell>
               <StyledTableCell align='right'>{row.category}</StyledTableCell>
