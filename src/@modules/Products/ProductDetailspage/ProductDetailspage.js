@@ -6,6 +6,9 @@ import { getLastPostDuration } from "../../../@helpers/timeDateUtils";
 import Loader from "../../../@components/Loader/Loader";
 import classes from "./ProductDetailsPage.module.css";
 
+// const baseUrl='https://meet-your-needs-api.herokuapp.com/api/'
+const baseUrl='http://localhost:3000/api/'
+
 const ProductDetailspage = (props) => {
   const dispatch = useDispatch();
   const { productId } = (props.location && props.location.state) || {};
@@ -42,7 +45,7 @@ const ProductDetailspage = (props) => {
           <div className={classes.leftSide}>
             <div className={classes.productImageContainer}>
               <img
-                src={`https://meet-your-needs-api.herokuapp.com/api/${productDetails.image}`}
+                src={baseUrl+productDetails.image}
                 className={classes.productImage}
               />
             </div>
