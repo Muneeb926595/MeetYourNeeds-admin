@@ -17,8 +17,8 @@ function ProductRow({ productImage, productName, price }) {
   }, [productImage])
 
   const formateImageUrl = (url) => {
-    return 'http://localhost:3000/api/' + url
-    // return 'https://meet-your-needs-api.herokuapp.com/api/' + url
+    // return 'http://localhost:3000/api/' + url
+    return 'https://meet-your-needs-api.herokuapp.com/api/' + url
   }
 
   return (
