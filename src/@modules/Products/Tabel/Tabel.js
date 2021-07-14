@@ -13,8 +13,8 @@ import Paper from '@material-ui/core/Paper'
 import { getLastPostDuration } from '../../../@helpers/timeDateUtils'
 import { deleteProduct } from '../../../@store/product/ProductActions'
 
-// const baseUrl='https://meet-your-needs-api.herokuapp.com/api/'
-const baseUrl='http://localhost:3000/api/'
+const baseUrl='https://meet-your-needs-api.herokuapp.com/api/'
+// const baseUrl='http://localhost:3000/api/'
 
 const StyledTableCell = withStyles((theme) => ({
   head: {

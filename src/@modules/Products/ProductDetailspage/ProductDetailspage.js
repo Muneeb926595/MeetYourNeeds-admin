@@ -6,8 +6,8 @@ import { getLastPostDuration } from "../../../@helpers/timeDateUtils";
 import Loader from "../../../@components/Loader/Loader";
 import classes from "./ProductDetailsPage.module.css";
 
-// const baseUrl='https://meet-your-needs-api.herokuapp.com/api/'
-const baseUrl='http://localhost:3000/api/'
+const baseUrl='https://meet-your-needs-api.herokuapp.com/api/'
+// const baseUrl='http://localhost:3000/api/'
 
 const ProductDetailspage = (props) => {
   const dispatch = useDispatch();
